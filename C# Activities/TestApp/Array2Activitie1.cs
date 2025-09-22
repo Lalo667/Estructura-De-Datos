@@ -9,7 +9,6 @@ class Array2Activitie1
 
         int[] valores = new int[n];
 
-        // Pedir los valores
         for (int i = 0; i < n; i++)
         {
             Console.Write($"Ingrese el valor para la posición {i + 1}: ");
@@ -33,10 +32,8 @@ class Array2Activitie1
         Console.Write("Ingrese el valor a insertar: ");
         int valor = int.Parse(Console.ReadLine()!);
 
-        // Crear un arreglo más grande para insertar
         int[] nuevaLista = new int[n + 1];
 
-        // Copiar y desplazar elementos
         for (int i = 0; i < pos; i++)
         {
             nuevaLista[i] = valores[i];

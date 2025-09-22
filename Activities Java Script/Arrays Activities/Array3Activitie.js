@@ -22,7 +22,7 @@ async function main() {
     let valor = parseInt(await preguntar("Ingrese el valor que desea buscar: "));
 
     // Búsqueda lineal
-    let encontrado = false;
+    let encontrado = false; 
     let posicion = -1;
 
     for (let i = 0; i < n; i++) {
