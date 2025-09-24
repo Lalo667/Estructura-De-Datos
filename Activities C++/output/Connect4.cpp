@@ -8,7 +8,7 @@ using namespace std; // tambien este es clave
 const int Rows = 6; // const es que c mantiene fija la matriz, y no cambiara
 const int Cols = 7;
 
-class Board { // c define la clase q puede tener atributos y metodos como funciones
+class Board { // c define la clase q puede tene^r atributos y metodos como funciones
     private: // c refiere que son inmodificables, por datos externos
         char board[Rows][Cols]; // declaramos la matriz  de tipo bidimensional
         
