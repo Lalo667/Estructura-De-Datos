@@ -1,0 +1,15 @@
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\C# Activities\Insertion\bin\Debug\net9.0\MiProyect.exe
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\C# Activities\Insertion\bin\Debug\net9.0\MiProyect.deps.json
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\C# Activities\Insertion\bin\Debug\net9.0\MiProyect.runtimeconfig.json
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\C# Activities\Insertion\bin\Debug\net9.0\MiProyect.dll
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\C# Activities\Insertion\bin\Debug\net9.0\MiProyect.pdb
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\C# Activities\Insertion\obj\Debug\net9.0\MiProyect.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\C# Activities\Insertion\obj\Debug\net9.0\MiProyect.AssemblyInfoInputs.cache
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\C# Activities\Insertion\obj\Debug\net9.0\MiProyect.AssemblyInfo.cs
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\C# Activities\Insertion\obj\Debug\net9.0\MiProyect.csproj.CoreCompileInputs.cache
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\C# Activities\Insertion\obj\Debug\net9.0\MiProyect.sourcelink.json
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\C# Activities\Insertion\obj\Debug\net9.0\MiProyect.dll
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\C# Activities\Insertion\obj\Debug\net9.0\refint\MiProyect.dll
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\C# Activities\Insertion\obj\Debug\net9.0\MiProyect.pdb
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\C# Activities\Insertion\obj\Debug\net9.0\MiProyect.genruntimeconfig.cache
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\C# Activities\Insertion\obj\Debug\net9.0\ref\MiProyect.dll

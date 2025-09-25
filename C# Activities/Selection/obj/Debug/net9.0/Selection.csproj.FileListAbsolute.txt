@@ -1,0 +1,15 @@
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\C# Activities\Selection\bin\Debug\net9.0\Selection.exe
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\C# Activities\Selection\bin\Debug\net9.0\Selection.deps.json
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\C# Activities\Selection\bin\Debug\net9.0\Selection.runtimeconfig.json
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\C# Activities\Selection\bin\Debug\net9.0\Selection.dll
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\C# Activities\Selection\bin\Debug\net9.0\Selection.pdb
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\C# Activities\Selection\obj\Debug\net9.0\Selection.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\C# Activities\Selection\obj\Debug\net9.0\Selection.AssemblyInfoInputs.cache
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\C# Activities\Selection\obj\Debug\net9.0\Selection.AssemblyInfo.cs
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\C# Activities\Selection\obj\Debug\net9.0\Selection.csproj.CoreCompileInputs.cache
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\C# Activities\Selection\obj\Debug\net9.0\Selection.sourcelink.json
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\C# Activities\Selection\obj\Debug\net9.0\Selection.dll
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\C# Activities\Selection\obj\Debug\net9.0\refint\Selection.dll
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\C# Activities\Selection\obj\Debug\net9.0\Selection.pdb
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\C# Activities\Selection\obj\Debug\net9.0\Selection.genruntimeconfig.cache
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\C# Activities\Selection\obj\Debug\net9.0\ref\Selection.dll
