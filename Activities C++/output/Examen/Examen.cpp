@@ -19,9 +19,9 @@ int main(){
             {7, 8, 9}
         },
         {
-            {10, 12, 13},
-            {14, 15, 16},
-            {17, 18, 19}
+            {167, 178, 189},
+            {156, 14, 16},
+            {123, 112, 19}
         },
         {
             {10, 12, 13},
@@ -48,15 +48,17 @@ int main(){
         }
     }
     cout << par << " pares" << '\n';
-
-    for (int i = 0; i < 3; i++) { 
-        cout << "\nSuma de columnas en el bloque " << i + 1 << ":\n";
-        for (int j = 0; j < 3; j++) {
-            int sumaColumna = 0;   
-            sumaColumna += matriz2[0][j] + matriz2[1][j] + matriz2[2][j];
-            cout << "Columna " << j + 1 << ": " << sumaColumna << '\n';
+    
+for (int i = 0; i < 3; i++) { 
+    cout << "\nSuma de columnas en el bloque " << i + 1 << ":\n";
+    for (int j = 0; j < 3; j++) {
+        int sumaColumna = 0;
+        for (int k = 0; k < 3; k++) {
+            sumaColumna += matriz3[i][k][j];
         }
+        cout << "Columna " << j + 1 << ": " << sumaColumna << '\n';
     }
+}
 
     cout << "Ingrese el numero que desea buscar" << '\n';
     cin >> bus;
