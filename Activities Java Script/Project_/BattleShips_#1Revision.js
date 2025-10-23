@@ -18,7 +18,7 @@ function printBoard(board, reveal = true) {
   const cellWidth = 2; 
   let header = '    ';
 
-  // Números de columna
+  // Num de columna
   for (let c = 1; c <= board_size; c++) {
     header += String(c).padStart(cellWidth, ' ') + ' ';
   }

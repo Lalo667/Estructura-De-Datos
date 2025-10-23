@@ -42,8 +42,8 @@ function printBoard(board, reveal = false) {
       if (!reveal && ships.some(s => s.char === val)) val = wata;
 
       // Colores:
-      if (val === hitChar) val = '\x1b[31m' + hitChar + '\x1b[0m'; // rojo
-      else if (val === missChar) val = '\x1b[34m' + missChar + '\x1b[0m'; // azul
+      if (val === hitChar) val = '\x1b[31m' + hitChar + '\x1b[0m'; // para cmbiar el color a rojo
+      else if (val === missChar) val = '\x1b[34m' + missChar + '\x1b[0m'; // a azul
 
       rowStr += val.padStart(cellWidth, ' ') + ' ';
     }
@@ -53,11 +53,13 @@ function printBoard(board, reveal = false) {
 
 function canPlace(board, row, col, orientation, size) {
   if (orientation === 'H') {
-    if (col + size > board_size) return false;
+    if (col + size > board_size) 
+        return false; // Suma la columna con el tamaño del barco y si es mayor al tamaño del tablero regresara un falso
     for (let i = 0; i < size; i++)
-      if (board[row][col + i] !== wata) return false;
+      if (board[row][col + i] !== wata) 
+        return false; //Ahora comprobara las poscisiones del tamaño del barcon con las pos del tablero, si no es igual a agua regresara un falso
   } else {
-    if (row + size > board_size) return false;
+    if (row + size > board_size) return false; // Lo mismo pero ahora con las filas
     for (let i = 0; i < size; i++)
       if (board[row + i][col] !== wata) return false;
   }
@@ -71,11 +73,11 @@ function placeAt(board, row, col, orientation, ship) {
   }
 }
 
-function randomOrientation() {
+function randomOrientation() { // Genera una probabilidad aleatoria en 0.1 y o.99, el cual si es menor a 0.5 dara h o v
   return Math.random() < 0.5 ? 'H' : 'V';
 }
 
-function randomInt(max) {
+function randomInt(max) { // Genera un numero entero aleatorio, en donde lo redondeara hacia abajo
   return Math.floor(Math.random() * max);
 }
 
@@ -113,7 +115,7 @@ function attack(board, row, col) {
   }
 }
 
-const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+const rl = readline.createInterface({ input: process.stdin, output: process.stdout }); // Sta funcion es necesariam ya q con ella nos da la capacidad de poder imprimir e ingresar cosas en la terminal
 const ask = q => new Promise(r => rl.question(q, a => r(a)));
 
 async function promptCoordinates() {
@@ -128,7 +130,7 @@ async function promptCoordinates() {
   }
 }
 
-(async () => {
+(async () => { // aca comienza el programa principal
   console.clear();
   console.log('===     BATTLESHIP    ===');
 
@@ -184,11 +186,11 @@ async function promptCoordinates() {
     } while (enemyResult === 'repeat');
 
     console.log(`\nTe atacaron [${enemyRow + 1}, ${enemyCol + 1}]`);
-    if (enemyResult === 'hit') console.log('\x1b[31m🔥 El enemigo acertó tu barco!\x1b[0m');
+    if (enemyResult === 'hit') console.log('\x1b[31mEl enemigo acertó tu barco!\x1b[0m');
     else console.log('El enemigo falló.');
 
     if (isAllSunk(playerBoard)) {
-      console.log('\n💀 Todos tus barcos fueron hundidos. Has perdido.');
+      console.log('\n buuuu. Has perdido.');
       break;
     }
   }

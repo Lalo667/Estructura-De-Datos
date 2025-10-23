@@ -1,0 +1,1 @@
+g++ main.cpp paciente.cpp -o programa.exe  >> .\programa.exe
