@@ -1,0 +1,15 @@
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\Sudoku2\bin\Debug\net9.0\Sudoku2.exe
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\Sudoku2\bin\Debug\net9.0\Sudoku2.deps.json
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\Sudoku2\bin\Debug\net9.0\Sudoku2.runtimeconfig.json
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\Sudoku2\bin\Debug\net9.0\Sudoku2.dll
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\Sudoku2\bin\Debug\net9.0\Sudoku2.pdb
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\Sudoku2\obj\Debug\net9.0\Sudoku2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\Sudoku2\obj\Debug\net9.0\Sudoku2.AssemblyInfoInputs.cache
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\Sudoku2\obj\Debug\net9.0\Sudoku2.AssemblyInfo.cs
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\Sudoku2\obj\Debug\net9.0\Sudoku2.csproj.CoreCompileInputs.cache
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\Sudoku2\obj\Debug\net9.0\Sudoku2.sourcelink.json
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\Sudoku2\obj\Debug\net9.0\Sudoku2.dll
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\Sudoku2\obj\Debug\net9.0\refint\Sudoku2.dll
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\Sudoku2\obj\Debug\net9.0\Sudoku2.pdb
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\Sudoku2\obj\Debug\net9.0\Sudoku2.genruntimeconfig.cache
+C:\Users\lalom\OneDrive\Documents\GitHub\Estructura-De-Datos\Sudoku2\obj\Debug\net9.0\ref\Sudoku2.dll
