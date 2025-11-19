@@ -316,66 +316,215 @@ double medirTiempo(vector<int> arr, void (*sortFunc)(vector<int>&)) {
     return duracion.count();
 }
 
+// ==================== OBTENER DESCRIPCIÓN DEL ESCENARIO ====================
+string obtenerDescripcionEscenario(string tipo) {
+    if (tipo == "Ordenado") {
+        return "Arreglo ya ordenado ascendentemente [1, 2, 3, ..., n]";
+    } else if (tipo == "Medianamente Ordenado") {
+        return "Arreglo parcialmente ordenado (70% ordenado, 30% aleatorio)";
+    } else {
+        return "Arreglo ordenado inversamente [n, n-1, ..., 2, 1]";
+    }
+}
+
 // ==================== FUNCIÓN DE ANÁLISIS ====================
 void analizarAlgoritmo(string nombre, void (*sortFunc)(vector<int>&)) {
     vector<int> tamanios = {100, 1000, 10000, 100000};
     vector<string> tipos = {"Ordenado", "Medianamente Ordenado", "Inverso"};
     
-    cout << "\n---------------------------------------------------------------\n";
-    cout << "        ANÁLISIS: " << nombre << "\n";
-    cout << "---------------------------------------------------------------\n\n";
+    cout << "\n";
+    cout << "╔═══════════════════════════════════════════════════════════════════════════╗\n";
+    cout << "║                       ANÁLISIS: " << left << setw(40) << nombre << "║\n";
+    cout << "╚═══════════════════════════════════════════════════════════════════════════╝\n\n";
 
     for (int n : tamanios) {
-        cout << "TAMAÑO DEL ARREGLO: " << n << " elementos\n";
-        cout << "-----------------------------------------------------------------\n";
+        cout << "┌───────────────────────────────────────────────────────────────────────────┐\n";
+        cout << "│  TAMAÑO DEL ARREGLO: " << right << setw(8) << n << " elementos" << setw(37) << "│\n";
+        cout << "└───────────────────────────────────────────────────────────────────────────┘\n\n";
         
-        // Ordenado
-        vector<int> arr = generarOrdenado(n);
-        double tiempo = medirTiempo(arr, sortFunc);
-        cout << "  " << left << setw(25) << tipos[0] << ": " << setw(10) << tiempo << " ms\n";
+        double tiempoMejor = -1;
+        string escenarioMejor;
         
-        // Medianamente ordenado
-        arr = generarMedianamenteOrdenado(n);
-        tiempo = medirTiempo(arr, sortFunc);
-        cout << "  " << left << setw(25) << tipos[1] << ": " << setw(10) << tiempo << " ms\n";
+        for (int i = 0; i < tipos.size(); i++) {
+            cout << "  ┌─────────────────────────────────────────────────────────────────────┐\n";
+            cout << "  │ ESCENARIO " << (i+1) << ": " << left << setw(55) << tipos[i] << "│\n";
+            cout << "  │ " << left << setw(70) << obtenerDescripcionEscenario(tipos[i]) << "│\n";
+            cout << "  └─────────────────────────────────────────────────────────────────────┘\n";
+            
+            vector<int> arr;
+            if (i == 0) arr = generarOrdenado(n);
+            else if (i == 1) arr = generarMedianamenteOrdenado(n);
+            else arr = generarInverso(n);
+            
+            double tiempo = medirTiempo(arr, sortFunc);
+            
+            cout << "    ⏱️  Tiempo de ejecución: " << right << setw(12) << fixed << setprecision(4) 
+                 << tiempo << " ms\n\n";
+            
+            if (tiempoMejor == -1 || tiempo < tiempoMejor) {
+                tiempoMejor = tiempo;
+                escenarioMejor = tipos[i];
+            }
+        }
         
-        // Inverso
-        arr = generarInverso(n);
-        tiempo = medirTiempo(arr, sortFunc);
-        cout << "  " << left << setw(25) << tipos[2] << ": " << setw(10) << tiempo << " ms\n";
-        
-        cout << "\n";
+        cout << "  ╔═══════════════════════════════════════════════════════════════════════╗\n";
+        cout << "  ║ 🏆 MEJOR ESCENARIO para " << left << setw(8) << n << " elementos: " 
+             << left << setw(27) << escenarioMejor << "║\n";
+        cout << "  ║    Tiempo: " << right << setw(12) << fixed << setprecision(4) 
+             << tiempoMejor << " ms" << setw(43) << "║\n";
+        cout << "  ╚═══════════════════════════════════════════════════════════════════════╝\n\n";
     }
+}
+
+// ==================== COMPARAR TODOS LOS ALGORITMOS ====================
+void compararTodosLosAlgoritmos() {
+    struct Algoritmo {
+        string nombre;
+        void (*funcion)(vector<int>&);
+    };
+    
+    vector<Algoritmo> algoritmos = {
+        {"Burbuja", bubbleSort},
+        {"Por Cubos", bucketSort},
+        {"Comb Sort", combSort},
+        {"Conteo", countingSort},
+        {"Heap Sort", heapSort},
+        {"Insercion", insertionSort},
+        {"Fusion", mergeSort},
+        {"Rapido", quickSort},
+        {"Radix Sort", radixSort},
+        {"Seleccion", selectionSort},
+        {"Shell Sort", shellSort}
+    };
+    
+    vector<int> tamanios = {100, 1000, 10000, 100000};
+    vector<string> tiposOrden = {"Ordenado", "Medianamente Ordenado", "Inverso"};
+    
+    cout << "\n";
+    cout << "╔═══════════════════════════════════════════════════════════════════════════╗\n";
+    cout << "║            COMPARACIÓN COMPLETA DE TODOS LOS ALGORITMOS                  ║\n";
+    cout << "╚═══════════════════════════════════════════════════════════════════════════╝\n";
+    
+    for (int n : tamanios) {
+        cout << "\n╔═══════════════════════════════════════════════════════════════════════════╗\n";
+        cout << "║  TAMAÑO DEL ARREGLO: " << right << setw(8) << n << " elementos" << setw(36) << "║\n";
+        cout << "╚═══════════════════════════════════════════════════════════════════════════╝\n";
+        
+        for (int tipoIdx = 0; tipoIdx < 3; tipoIdx++) {
+            cout << "\n┌───────────────────────────────────────────────────────────────────────────┐\n";
+            cout << "│  ESCENARIO " << (tipoIdx+1) << ": " << left << setw(60) << tiposOrden[tipoIdx] << "│\n";
+            cout << "│  " << left << setw(74) << obtenerDescripcionEscenario(tiposOrden[tipoIdx]) << "│\n";
+            cout << "└───────────────────────────────────────────────────────────────────────────┘\n\n";
+            
+            vector<pair<string, double>> resultados;
+            
+            for (const auto& algo : algoritmos) {
+                vector<int> arr;
+                if (tipoIdx == 0) arr = generarOrdenado(n);
+                else if (tipoIdx == 1) arr = generarMedianamenteOrdenado(n);
+                else arr = generarInverso(n);
+                
+                double tiempo = medirTiempo(arr, algo.funcion);
+                resultados.push_back({algo.nombre, tiempo});
+                
+                cout << "  " << left << setw(22) << algo.nombre << ": " 
+                     << right << setw(14) << fixed << setprecision(4) << tiempo << " ms\n";
+            }
+            
+            auto mejor = min_element(resultados.begin(), resultados.end(),
+                [](const pair<string, double>& a, const pair<string, double>& b) {
+                    return a.second < b.second;
+                });
+            
+            auto peor = max_element(resultados.begin(), resultados.end(),
+                [](const pair<string, double>& a, const pair<string, double>& b) {
+                    return a.second < b.second;
+                });
+            
+            cout << "\n  ╔═════════════════════════════════════════════════════════════════════╗\n";
+            cout << "  ║  🏆 MEJOR ALGORITMO: " << left << setw(22) << mejor->first 
+                 << right << setw(14) << fixed << setprecision(4) << mejor->second << " ms       ║\n";
+            cout << "  ║  ❌ PEOR ALGORITMO:  " << left << setw(22) << peor->first 
+                 << right << setw(14) << fixed << setprecision(4) << peor->second << " ms       ║\n";
+            cout << "  ║  📊 DIFERENCIA:      " << right << setw(36) 
+                 << fixed << setprecision(4) << (peor->second - mejor->second) << " ms       ║\n";
+            cout << "  ║  ⚡ FACTOR DE MEJORA: " << right << setw(35) 
+                 << fixed << setprecision(2) << (peor->second / mejor->second) << "x        ║\n";
+            cout << "  ╚═════════════════════════════════════════════════════════════════════╝\n";
+        }
+    }
+    
+    cout << "\n\n╔═══════════════════════════════════════════════════════════════════════════╗\n";
+    cout << "║                    RESUMEN Y RECOMENDACIONES                              ║\n";
+    cout << "╚═══════════════════════════════════════════════════════════════════════════╝\n\n";
+    
+    cout << "┌───────────────────────────────────────────────────────────────────────────┐\n";
+    cout << "│  📋 ESCENARIO 1: DATOS YA ORDENADOS                                       │\n";
+    cout << "│     Descripción: [1, 2, 3, ..., n]                                        │\n";
+    cout << "└───────────────────────────────────────────────────────────────────────────┘\n";
+    cout << "   🏆 Mejor opción: Counting Sort o Radix Sort\n";
+    cout << "   ⚡ Complejidad: O(n) - Tiempo lineal\n";
+    cout << "   💡 Alternativa: Insertion Sort (O(n) en mejor caso)\n\n";
+    
+    cout << "┌───────────────────────────────────────────────────────────────────────────┐\n";
+    cout << "│  📋 ESCENARIO 2: DATOS MEDIANAMENTE ORDENADOS                             │\n";
+    cout << "│     Descripción: 70% ordenado, 30% elementos aleatorios                   │\n";
+    cout << "└───────────────────────────────────────────────────────────────────────────┘\n";
+    cout << "   🏆 Mejor opción: Quick Sort o Merge Sort\n";
+    cout << "   ⚡ Complejidad: O(n log n) promedio\n";
+    cout << "   💡 Ventaja: Buen balance entre velocidad y estabilidad\n\n";
+    
+    cout << "┌───────────────────────────────────────────────────────────────────────────┐\n";
+    cout << "│  📋 ESCENARIO 3: DATOS ORDENADOS INVERSAMENTE                             │\n";
+    cout << "│     Descripción: [n, n-1, ..., 2, 1] - Peor caso para muchos algoritmos  │\n";
+    cout << "└───────────────────────────────────────────────────────────────────────────┘\n";
+    cout << "   🏆 Mejor opción: Merge Sort o Heap Sort\n";
+    cout << "   ⚡ Complejidad: O(n log n) garantizado\n";
+    cout << "   ⚠️  EVITAR: Quick Sort (degrada a O(n²) en peor caso)\n\n";
+    
+    cout << "╔═══════════════════════════════════════════════════════════════════════════╗\n";
+    cout << "║                    RECOMENDACIÓN GENERAL POR CASO                         ║\n";
+    cout << "╚═══════════════════════════════════════════════════════════════════════════╝\n\n";
+    cout << "  ✅ Uso general (datos aleatorios):     Quick Sort o Merge Sort\n";
+    cout << "  ✅ Datos pequeños con enteros:         Counting Sort\n";
+    cout << "  ✅ Estabilidad garantizada:            Merge Sort\n";
+    cout << "  ✅ Memoria limitada:                   Heap Sort o Quick Sort (in-place)\n";
+    cout << "  ✅ Datos casi ordenados:               Insertion Sort o Shell Sort\n";
+    cout << "  ✅ Enteros con rango limitado:         Radix Sort o Counting Sort\n\n";
 }
 
 int main() {
     int opcion;
     
     do {
-        cout << "\n--------------------------------------------------------------\n";
-        cout << "-     SISTEMA DE ANALISIS DE ALGORITMOS DE ORDENAMIENTO      -\n";
-        cout << "--------------------------------------------------------------\n";
-        cout << "-  1.  Burbuja                                               -\n";
-        cout << "-  2.  Por Cubos (Bucket Sort)                               -\n";
-        cout << "-  3.  Comb Sort                                             -\n";
-        cout << "-  4.  Conteo (Counting Sort)                                -\n";
-        cout << "-  5.  Heap Sort                                             -\n";
-        cout << "-  6.  Insercion                                             -\n";
-        cout << "-  7.  Fusion (Merge Sort)                                   -\n";
-        cout << "-  8.  Rapido (Quick Sort)                                   -\n";
-        cout << "-  9.  Radix Sort                                            -\n";
-        cout << "-  10. Por Selección                                         -\n";
-        cout << "-  11. Shell Sort                                            -\n";
-        cout << "-  0.  Salir                                                 -\n";
-        cout << "--------------------------------------------------------------\n";
-        cout << "\nSeleccione un algoritmo: ";
+        cout << "\n╔═══════════════════════════════════════════════════════════════════════════╗\n";
+        cout << "║         SISTEMA DE ANÁLISIS DE ALGORITMOS DE ORDENAMIENTO                ║\n";
+        cout << "╚═══════════════════════════════════════════════════════════════════════════╝\n";
+        cout << "┌───────────────────────────────────────────────────────────────────────────┐\n";
+        cout << "│  1.  Burbuja (Bubble Sort)                                                │\n";
+        cout << "│  2.  Por Cubos (Bucket Sort)                                              │\n";
+        cout << "│  3.  Comb Sort                                                            │\n";
+        cout << "│  4.  Conteo (Counting Sort)                                               │\n";
+        cout << "│  5.  Heap Sort                                                            │\n";
+        cout << "│  6.  Inserción (Insertion Sort)                                           │\n";
+        cout << "│  7.  Fusión (Merge Sort)                                                  │\n";
+        cout << "│  8.  Rápido (Quick Sort)                                                  │\n";
+        cout << "│  9.  Radix Sort                                                           │\n";
+        cout << "│  10. Por Selección (Selection Sort)                                       │\n";
+        cout << "│  11. Shell Sort                                                           │\n";
+        cout << "├───────────────────────────────────────────────────────────────────────────┤\n";
+        cout << "│  12. ⭐ COMPARAR TODOS LOS ALGORITMOS                                     │\n";
+        cout << "├───────────────────────────────────────────────────────────────────────────┤\n";
+        cout << "│  0.  Salir                                                                │\n";
+        cout << "└───────────────────────────────────────────────────────────────────────────┘\n";
+        cout << "\n>>> Seleccione una opción: ";
         cin >> opcion;
         
-        cout << fixed << setprecision(2);
+        cout << fixed << setprecision(4);
         
         switch(opcion) {
             case 1:
-                analizarAlgoritmo("MÉTODO BURBUJA", bubbleSort);
+                analizarAlgoritmo("MÉTODO BURBUJA (BUBBLE SORT)", bubbleSort);
                 break;
             case 2:
                 analizarAlgoritmo("POR CUBOS (BUCKET SORT)", bucketSort);
@@ -390,32 +539,37 @@ int main() {
                 analizarAlgoritmo("HEAP SORT", heapSort);
                 break;
             case 6:
-                analizarAlgoritmo("INSERCION", insertionSort);
+                analizarAlgoritmo("INSERCIÓN (INSERTION SORT)", insertionSort);
                 break;
             case 7:
-                analizarAlgoritmo("FUSION (MERGE SORT)", mergeSort);
+                analizarAlgoritmo("FUSIÓN (MERGE SORT)", mergeSort);
                 break;
             case 8:
-                analizarAlgoritmo("RAPIDO (QUICK SORT)", quickSort);
+                analizarAlgoritmo("RÁPIDO (QUICK SORT)", quickSort);
                 break;
             case 9:
                 analizarAlgoritmo("RADIX SORT", radixSort);
                 break;
             case 10:
-                analizarAlgoritmo("POR SELECCION", selectionSort);
+                analizarAlgoritmo("POR SELECCIÓN (SELECTION SORT)", selectionSort);
                 break;
             case 11:
                 analizarAlgoritmo("SHELL SORT", shellSort);
                 break;
+            case 12:
+                compararTodosLosAlgoritmos();
+                break;
             case 0:
-                cout << "\nGracias por usar el sistema de analisis!\n";
+                cout << "\n╔═══════════════════════════════════════════════════════════════════════════╗\n";
+                cout << "║           ¡Gracias por usar el Sistema de Análisis!                      ║\n";
+                cout << "╚═══════════════════════════════════════════════════════════════════════════╝\n\n";
                 break;
             default:
-                cout << "\nOpción no valida. Intente de nuevo.\n";
+                cout << "\n❌ Opción no válida. Por favor, intente de nuevo.\n";
         }
         
         if (opcion != 0) {
-            cout << "\nPresione Enter para continuar...";
+            cout << "\n>>> Presione Enter para continuar...";
             cin.ignore();
             cin.get();
         }
